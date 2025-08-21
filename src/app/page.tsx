@@ -21,6 +21,9 @@ export default function Home() {
         </ol>
 
         <div className={styles.ctas}>
+          <h1 className="text-5xl font-bold underline text-red-500 ">
+            hey
+          </h1>
           <a
             className={styles.primary}
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
@@ -40,7 +43,7 @@ export default function Home() {
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.secondary}
+            className="text-red-500 font-bold"
           >
             Read our docs
           </a>
