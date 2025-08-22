@@ -1,7 +1,7 @@
 // src/components/Hero.tsx
 
 
-export default function Header() {
+export default function Hero() {
     return (
         <div className="flex w-full justify-center text-center pt-30">
             <div className="max-w-2xl">
