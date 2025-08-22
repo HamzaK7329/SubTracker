@@ -3,7 +3,7 @@
 
 export default function Header() {
     return (
-        <div className="flex w-full justify-center text-center pt-40">
+        <div className="flex w-full justify-center text-center pt-30">
             <div className="max-w-2xl">
                 <div className="inline-block border border-[#DA903D] rounded-3xl px-2.5 md:px-4 mb-5">
                     <p className="text-[#F8C572] text-xs md:text-base">
