@@ -30,7 +30,7 @@ export default function Hero() {
             whileInView="show"
             viewport={{once: true, amount: 0.2 }}
             >
-                <motion.div className="inline-block border border-[#DA903D] rounded-3xl px-2.5 md:px-4 mb-5" variants={item}>
+                <motion.div className="inline-block border border-[#f8c5728e] rounded-3xl px-2.5 md:px-4 mb-5" variants={item}>
                     <p className="text-[#F8C572] text-xs md:text-base">
                         See Your Subscriptions Clearly
                     </p>

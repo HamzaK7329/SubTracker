@@ -8,7 +8,7 @@ interface FeatureCardProps {
 export default function FeatureCard({ number, icon, title, description }: FeatureCardProps) {
     return (
         <div 
-        className="bg-[#0A101E] border border-[#DA903D] rounded-lg relative w-full px-4 py-3 sm:px-5 sm:py-4 md:px-6 md:py-6 md:min-h-60 ">
+        className="bg-[#0A101E] border border-[#f8c5728e] rounded-lg relative w-full px-4 py-3 sm:px-5 sm:py-4 md:px-6 md:py-6 md:min-h-60 ">
             <div className="absolute top-4 left-4 w-8 h-8 bg-[#DA903D] rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-sm">{number}</span>
             </div>
@@ -23,7 +23,7 @@ export default function FeatureCard({ number, icon, title, description }: Featur
                 {title}
             </h3>
 
-            <p className="text-gray-300 text-center text-sm leading-relaxed">
+            <p className="text-secondary-500 text-center text-sm leading-relaxed">
                 {description}
             </p>
         </div>
