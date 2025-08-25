@@ -3,7 +3,7 @@
 'use client';
 
 import { motion } from 'framer-motion'
-import InfoCard from "./InfoCard";
+import WhyUsCard from "./WhyUsCard";
 
 const container = {
     hidden: { opacity: 0 },
@@ -40,39 +40,44 @@ export default function HowInfo() {
             viewport={{ once: true, amount: 0.2 }}
             >
                 <motion.h1 className="text-2xl max-w-2xl sm:text-3xl md:text-5xl font-bold bg-gradient-to-r from-[#FDDDB4] to-[#F0EBDF] bg-clip-text text-transparent" variants={item}>
-                    How Subscription Tracking Works</motion.h1>
+                    Why Choose App?</motion.h1>
                 <motion.p className="text-secondary-500 pt-5 text-xs sm:text-sm md:text-base" variants={item}>
-                    App makes managing subscriptions simple and effective. Follow these three 
-                    easy steps to stay in control.</motion.p>
+                    A simpler, smarter way to stay on top of your subscriptions.</motion.p>
 
                 <motion.div 
-                className="mt-16 grid gap-6 grid-cols-1 md:grid-cols-3" 
+                className="mt-16 grid gap-6 grid-cols-1 md:grid-cols-2" 
                 variants={featureContainer}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.3 }}
                 >
                     <motion.div variants={item}>
-                        <InfoCard 
+                        <WhyUsCard 
                             icon={<BarChartIcon />}
-                            title="Add Your Subscriptions"
-                            description="Enter the details for each service - name, plan, cost, and billing cycle."/>
+                            title="One Simple Hub"
+                            description="All your services stored in a clean, easy-to-use space."/>
                     </motion.div>
                     <motion.div variants={item}>
-                        <InfoCard 
+                        <WhyUsCard 
                             icon={<BarChartIcon />}
-                            title="Track Your Costs"
-                            description="See your total monthly and yearly spending in one clear dashboard."/>
+                            title="Effortless Summaries"
+                            description="See your spending at a glance without any manual tracking."/>
                     </motion.div>
                     <motion.div variants={item}>
-                        <InfoCard 
+                        <WhyUsCard 
                             icon={<BarChartIcon />}
-                            title="Get Renewal Reminders"
-                            description="We notify you before each subscription renews."/>
+                            title="Stay Ahead"
+                            description="Be reminded before every renewal date so you can act in time."/>
+                    </motion.div>
+                    <motion.div variants={item}>
+                        <WhyUsCard 
+                            icon={<BarChartIcon />}
+                            title="Privacy First"
+                            description="Your information is secure, we never share your data with third parties."/>
                     </motion.div>
                 </motion.div>
 
-                
+                <div className="mt-20 sm:mt-32 md:mt-40"></div>
             </motion.div>
         </div>
     );
