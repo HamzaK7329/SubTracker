@@ -46,7 +46,7 @@ export default function HowInfo() {
                     easy steps to stay in control.</motion.p>
 
                 <motion.div 
-                className="mt-16 grid gap-6 md:grid-cols-2" 
+                className="mt-16 grid gap-6 grid-cols-1 md:grid-cols-3" 
                 variants={featureContainer}
                 initial="hidden"
                 whileInView="show"
