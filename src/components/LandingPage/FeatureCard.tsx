@@ -1,0 +1,31 @@
+interface FeatureCardProps {
+    number: number;
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+}
+
+export default function FeatureCard({ number, icon, title, description }: FeatureCardProps) {
+    return (
+        <div 
+        className="bg-[#0A101E] border border-[#DA903D] rounded-lg p-6 relative w-full h-58">
+            <div className="absolute top-4 left-4 w-8 h-8 bg-[#DA903D] rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-sm">{number}</span>
+            </div>
+
+            <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 bg-[#DA903D] rounded-full flex items-center justify-center">
+                    {icon}
+                </div>
+            </div>
+
+            <h3 className="text-xl font-bold text-white text-center mb-3">
+                {title}
+            </h3>
+
+            <p className="text-gray-300 text-center text-sm leading-relaxed">
+                {description}
+            </p>
+        </div>
+    );
+}
