@@ -29,6 +29,22 @@ const item = {
     }
 };
 
+const fromLeft = {
+    hidden: { opacity: 0, x: -20 },
+    show: {
+        opacity: 1, x: 0,
+        transition: { duration: 0.5, ease: 'easeOut' as const}
+    }
+};
+
+const fromRight = {
+    hidden: { opacity: 0, x: 20 },
+    show: {
+        opacity: 1, x: 0,
+        transition: { duration: 0.5, ease: 'easeOut' as const}
+    }
+};
+
 export default function HowInfo() {
     return (
         <div className="flex w-full justify-center text-center pt-52 sm:pt-25 md:pt-45 px-4 sm:px-6 md:px-8">
@@ -51,25 +67,25 @@ export default function HowInfo() {
                 whileInView="show"
                 viewport={{ once: true, amount: 0.3 }}
                 >
-                    <motion.div variants={item}>
+                    <motion.div variants={fromLeft}>
                         <WhyUsCard 
                             icon={<BarChartIcon />}
                             title="One Simple Hub"
                             description="All your services stored in a clean, easy-to-use space."/>
                     </motion.div>
-                    <motion.div variants={item}>
+                    <motion.div variants={fromRight}>
                         <WhyUsCard 
                             icon={<BarChartIcon />}
                             title="Effortless Summaries"
                             description="See your spending at a glance without any manual tracking."/>
                     </motion.div>
-                    <motion.div variants={item}>
+                    <motion.div variants={fromLeft}>
                         <WhyUsCard 
                             icon={<BarChartIcon />}
                             title="Stay Ahead"
                             description="Be reminded before every renewal date so you can act in time."/>
                     </motion.div>
-                    <motion.div variants={item}>
+                    <motion.div variants={fromRight}>
                         <WhyUsCard 
                             icon={<BarChartIcon />}
                             title="Privacy First"
