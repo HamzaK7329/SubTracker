@@ -66,21 +66,21 @@ export default function Features() {
                     </motion.div>
                     <motion.div variants={item}>
                         <FeatureCard 
-                            number={1}
+                            number={2}
                             icon={<BarChartIcon />}
                             title="All-in-One Dashboard"
                             description="See all your monthly, quarterly, and yearly subscriptions in one clean, simple view."/>
                     </motion.div>
                     <motion.div variants={item}>
                         <FeatureCard 
-                            number={1}
+                            number={3}
                             icon={<BarChartIcon />}
                             title="Automatic Cost Calculation"
                             description="Get your total monthly and yearly spend calculated instantly — no spreadsheets needed."/>
                     </motion.div>
                     <motion.div variants={item}>
                         <FeatureCard 
-                            number={1}
+                            number={4}
                             icon={<BarChartIcon />}
                             title="Renewal Reminders"
                             description="Receive alerts before renewals so you can cancel or adjust plans before you’re charged."/>
