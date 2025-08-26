@@ -3,6 +3,7 @@ import Hero from "@/components/LandingPage/Hero";
 import Features from "@/components/LandingPage/Features";
 import HowInfo from "@/components/LandingPage/HowInfo";
 import WhyUs from "@/components/LandingPage/WhyUs";
+import ContactUs from "@/components/LandingPage/ContactUs";
 
 export default function LandingPage() {
     return (
@@ -12,6 +13,7 @@ export default function LandingPage() {
             <Features/ >
             <HowInfo/ >
             <WhyUs/ >
+            <ContactUs/ >
         </div>
     );
 }

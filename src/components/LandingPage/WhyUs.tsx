@@ -93,7 +93,6 @@ export default function HowInfo() {
                     </motion.div>
                 </motion.div>
 
-                <div className="mt-20 sm:mt-32 md:mt-40"></div>
             </motion.div>
         </div>
     );
