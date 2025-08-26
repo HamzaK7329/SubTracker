@@ -24,7 +24,7 @@ export default function Hero() {
     return (
         <div className="flex w-full justify-center text-center pt-30">
             <motion.div 
-            className="max-w-2xl"
+            className="max-w-4xl"
             variants={container}
             initial="hidden"
             whileInView="show"
@@ -35,11 +35,11 @@ export default function Hero() {
                         See Your Subscriptions Clearly
                     </p>
                 </motion.div >
-                <motion.h1 className="text-2xl sm:text-3xl md:text-5xl font-bold bg-gradient-to-r from-[#FDDDB4] to-[#F0EBDF] bg-clip-text text-transparent" variants={item}>
+                <motion.h1 className="text-2xl sm:text-3xl md:text-6xl font-bold bg-gradient-to-r from-[#FDDDB4] to-[#F0EBDF] bg-clip-text text-transparent" variants={item}>
                     Stay Aware.</motion.h1>
-                <motion.h1 className="text-2xl sm:text-3xl md:text-5xl font-bold bg-gradient-to-r from-[#FDDDB4] to-[#F0EBDF] bg-clip-text text-transparent" variants={item}>
+                <motion.h1 className="text-2xl sm:text-3xl md:text-6xl font-bold bg-gradient-to-r from-[#FDDDB4] to-[#F0EBDF] bg-clip-text text-transparent" variants={item}>
                     Track Your Subscriptions.</motion.h1>
-                <motion.h1 className="text-2xl sm:text-3xl md:text-5xl font-bold bg-gradient-to-r from-[#FDDDB4] to-[#F0EBDF] bg-clip-text text-transparent" variants={item}>
+                <motion.h1 className="text-2xl sm:text-3xl md:text-6xl font-bold bg-gradient-to-r from-[#FDDDB4] to-[#F0EBDF] bg-clip-text text-transparent" variants={item}>
                     Save More.</motion.h1>
                 <motion.p className="text-secondary-500 pt-5 text-xs sm:text-sm md:text-base" variants={item}>Your subscription dashboard.</motion.p>
                 <motion.p className="text-secondary-500 text-xs sm:text-sm md:text-base" variants={item}>Track payments and manage spending effortlessly.</motion.p>

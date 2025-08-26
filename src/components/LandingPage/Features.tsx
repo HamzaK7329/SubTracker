@@ -33,7 +33,7 @@ export default function Features() {
     return (
         <div className="flex w-full justify-center text-center pt-52 sm:pt-25 md:pt-45 px-4 sm:px-6 md:px-8">
             <motion.div 
-            className="max-w-2xl w-full"
+            className="max-w-4xl w-full"
             variants={container}
             initial='hidden'
             whileInView="show"
@@ -44,7 +44,7 @@ export default function Features() {
                         Track Subscriptions Easily
                     </p>
                 </motion.div>
-                <motion.h1 className="text-2xl max-w-2xl sm:text-3xl md:text-5xl font-bold bg-gradient-to-r from-[#FDDDB4] to-[#F0EBDF] bg-clip-text text-transparent" variants={item}>
+                <motion.h1 className="text-2xl max-w-4xl sm:text-3xl md:text-6xl font-bold bg-gradient-to-r from-[#FDDDB4] to-[#F0EBDF] bg-clip-text text-transparent" variants={item}>
                     See All Your Monthly Costs in One Place</motion.h1>
                 <motion.p className="text-secondary-500 pt-5 text-xs sm:text-sm md:text-base" variants={item}>
                     App helps you monitor, organise, and stay on top of every subscription

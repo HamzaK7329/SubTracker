@@ -33,13 +33,13 @@ export default function HowInfo() {
     return (
         <div className="flex w-full justify-center text-center pt-52 sm:pt-25 md:pt-45 px-4 sm:px-6 md:px-8">
             <motion.div 
-            className="max-w-2xl w-full"
+            className="max-w-4xl w-full"
             variants={container}
             initial='hidden'
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             >
-                <motion.h1 className="text-2xl max-w-2xl sm:text-3xl md:text-5xl font-bold bg-gradient-to-r from-[#FDDDB4] to-[#F0EBDF] bg-clip-text text-transparent" variants={item}>
+                <motion.h1 className="text-2xl max-w-4xl sm:text-3xl md:text-6xl font-bold bg-gradient-to-r from-[#FDDDB4] to-[#F0EBDF] bg-clip-text text-transparent" variants={item}>
                     How Subscription Tracking Works</motion.h1>
                 <motion.p className="text-secondary-500 pt-5 text-xs sm:text-sm md:text-base" variants={item}>
                     App makes managing subscriptions simple and effective. Follow these three 
