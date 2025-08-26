@@ -60,9 +60,9 @@ export default function HowInfo() {
                 <motion.p className="text-secondary-500 pt-5 text-xs sm:text-sm md:text-base" variants={item}>
                     Have questions about App? Want to suggest a new feature or report an issue? We'd love to hear from you!</motion.p>
                 
-                <div className="mt-15 text-left">
+                <motion.div className="mt-15 text-left" variants={item}>
                     <ContactForm />
-                </div>
+                </motion.div>
                 
 
                 <div className="mt-20 sm:mt-32 md:mt-40"></div>
