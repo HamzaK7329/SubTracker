@@ -22,7 +22,7 @@ export default function FeatureCard({ number, icon, title, description }: Featur
             <h3 className="text-xl font-bold text-white text-center mb-3">
                 {title}
             </h3>
-
+            
             <p className="text-secondary-500 text-center text-sm leading-relaxed">
                 {description}
             </p>
