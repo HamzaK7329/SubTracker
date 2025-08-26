@@ -31,7 +31,7 @@ const item = {
 
 export default function Features() {
     return (
-        <div className="flex w-full justify-center text-center pt-52 sm:pt-25 md:pt-45 px-4 sm:px-6 md:px-8">
+        <div id="features" className="flex w-full justify-center text-center pt-52 sm:pt-25 md:pt-45 px-4 sm:px-6 md:px-8">
             <motion.div 
             className="max-w-4xl w-full"
             variants={container}

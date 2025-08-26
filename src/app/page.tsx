@@ -6,7 +6,7 @@ import WhyUs from "@/components/LandingPage/WhyUs";
 
 export default function LandingPage() {
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#020610] to-[#111724]">
+        <div id="top" className="min-h-screen bg-gradient-to-br from-[#020610] to-[#111724]">
             <Header />
             <Hero />
             <Features/ >

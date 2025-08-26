@@ -20,10 +20,10 @@ export default function Header() {
         <div className="flex justify-around w-full max-w-7xl">
             <h1 className="font-semibold text-xl">Logo</h1>
             <nav className="flex justify-around w-2xl font-semibold text-base">
-                <p>Home</p>
-                <p>Compare</p>
-                <p>Contact</p>
-                <p>Track</p>
+                <Link href="/#top">Home</Link>
+                <Link href="/#features">Features</Link>
+                <Link href="/">Contact</Link>
+                <Link href="/">Log In</Link>
             </nav>
         </div>
     </header>
