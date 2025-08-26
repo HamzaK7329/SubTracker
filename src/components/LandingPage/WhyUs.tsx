@@ -69,25 +69,25 @@ export default function HowInfo() {
                 >
                     <motion.div variants={fromLeft}>
                         <WhyUsCard 
-                            icon={<BarChartIcon />}
+                            icon={<img src={'https://www.svgrepo.com/show/454915/arrow-up-cloud.svg'} width={26} height={26} className='inline-block'/>}
                             title="One Simple Hub"
                             description="All your services stored in a clean, easy-to-use space."/>
                     </motion.div>
                     <motion.div variants={fromRight}>
                         <WhyUsCard 
-                            icon={<BarChartIcon />}
+                            icon={<img src={'https://www.svgrepo.com/show/456888/line-presentation.svg'} width={26} height={26} className='inline-block'/>}
                             title="Effortless Summaries"
                             description="See your spending at a glance without any manual tracking."/>
                     </motion.div>
                     <motion.div variants={fromLeft}>
                         <WhyUsCard 
-                            icon={<BarChartIcon />}
+                            icon={<img src={'https://www.svgrepo.com/show/455236/launch-rocket.svg'} width={26} height={26} className='inline-block'/>}
                             title="Stay Ahead"
                             description="Be reminded before every renewal date so you can act in time."/>
                     </motion.div>
                     <motion.div variants={fromRight}>
                         <WhyUsCard 
-                            icon={<BarChartIcon />}
+                            icon={<img src={'https://www.svgrepo.com/show/456421/folder-shield.svg'} width={26} height={26} className='inline-block'/>}
                             title="Privacy First"
                             description="Your information is secure, we never share your data with third parties."/>
                     </motion.div>

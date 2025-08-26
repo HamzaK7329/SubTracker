@@ -60,28 +60,28 @@ export default function Features() {
                     <motion.div variants={item}>
                         <FeatureCard 
                             number={1}
-                            icon={<BarChartIcon />}
+                            icon={<img src={'https://www.svgrepo.com/show/455605/bar-chart-magnifying-glass.svg'} width={26} height={26} className='inline-block'/>}
                             title="Smart Subscription Tracking"
                             description="Add any subscription and our system records the exact name, plan, and billing cycle."/>
                     </motion.div>
                     <motion.div variants={item}>
                         <FeatureCard 
                             number={2}
-                            icon={<BarChartIcon />}
+                            icon={<img src={'https://www.svgrepo.com/show/455954/double-touch.svg'} width={26} height={26} className='inline-block'/>}
                             title="All-in-One Dashboard"
                             description="See all your monthly, quarterly, and yearly subscriptions in one clean, simple view."/>
                     </motion.div>
                     <motion.div variants={item}>
                         <FeatureCard 
                             number={3}
-                            icon={<BarChartIcon />}
+                            icon={<img src={'https://www.svgrepo.com/show/456852/calculator.svg'} width={26} height={26} className='inline-block'/>}
                             title="Automatic Cost Calculation"
                             description="Get your total monthly and yearly spend calculated instantly — no spreadsheets needed."/>
                     </motion.div>
                     <motion.div variants={item}>
                         <FeatureCard 
                             number={4}
-                            icon={<BarChartIcon />}
+                            icon={<img src={'https://www.svgrepo.com/show/457010/bell-reminder.svg'} width={26} height={26} className='inline-block'/>}
                             title="Renewal Reminders"
                             description="Receive alerts before renewals so you can cancel or adjust plans before you’re charged."/>
                     </motion.div>
@@ -93,20 +93,3 @@ export default function Features() {
     );
 }
 
-// Simple bar chart icon component
-function BarChartIcon() {
-    return (
-        <svg 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            xmlns="http://www.w3.org/2000/svg"
-            className="text-black"
-        >
-            <rect x="4" y="16" width="2" height="4" fill="currentColor"/>
-            <rect x="10" y="12" width="2" height="8" fill="currentColor"/>
-            <rect x="16" y="8" width="2" height="12" fill="currentColor"/>
-        </svg>
-    );
-}

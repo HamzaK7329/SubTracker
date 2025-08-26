@@ -16,7 +16,7 @@ export default function Header() {
     }, []);
 
     return (
-    <header  className={`sticky top-0 z-50 mx-auto w-full border-y border-[#5A5A5A] text-secondary-500 bg-[#020610] flex h-20 items-center justify-center transition-all duration-300 ${scrolled ? 'h-20' : 'h-35'}`}>
+    <header  className={`sticky top-0 z-50 mx-auto w-full border-y border-[#5A5A5A] text-secondary-500 bg-[#020610]/10 backdrop-blur-md flex h-20 items-center justify-center transition-all duration-300 ${scrolled ? 'h-20' : 'h-35'}`}>
         <div className="flex justify-around w-full max-w-7xl">
             <h1 className="font-semibold text-xl">Logo</h1>
             <nav className="flex justify-around w-2xl font-semibold text-base">

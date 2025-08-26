@@ -54,19 +54,19 @@ export default function HowInfo() {
                 >
                     <motion.div variants={item}>
                         <InfoCard 
-                            icon={<BarChartIcon />}
+                            icon={<img src={'https://www.svgrepo.com/show/457069/plus-circle.svg'} width={26} height={26} className='inline-block'/>}
                             title="Add Your Subscriptions"
                             description="Enter the details for each service - name, plan, cost, and billing cycle."/>
                     </motion.div>
                     <motion.div variants={item}>
                         <InfoCard 
-                            icon={<BarChartIcon />}
+                            icon={<img src={'https://www.svgrepo.com/show/455605/bar-chart-magnifying-glass.svg'} width={26} height={26} className='inline-block'/>}
                             title="Track Your Costs"
                             description="See your total monthly and yearly spending in one clear dashboard."/>
                     </motion.div>
                     <motion.div variants={item}>
                         <InfoCard 
-                            icon={<BarChartIcon />}
+                            icon={<img src={'https://www.svgrepo.com/show/457010/bell-reminder.svg'} width={26} height={26} className='inline-block'/>}
                             title="Get Renewal Reminders"
                             description="We notify you before each subscription renews."/>
                     </motion.div>
