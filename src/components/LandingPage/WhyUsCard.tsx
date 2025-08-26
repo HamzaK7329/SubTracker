@@ -7,7 +7,7 @@ interface WhyUsCardProps {
 export default function WhyUsCard({ icon, title, description }: WhyUsCardProps) {
     return (
         <div 
-        className="bg-[#0A101E] border border-[#f8c5728e] rounded-lg relative w-full px-4 py-3 sm:px-5 sm:py-4 md:px-6 md:py-6 md:min-h-60 ">
+        className="bg-[#0A101E] border border-[#f8c5728e] rounded-lg relative w-full px-4 py-3 sm:px-5 sm:py-4 md:px-6 md:py-6 md:min-h-50 ">
             <div className="flex justify-center mb-4">
                 <div className="w-16 h-16 bg-[#DA903D] rounded-full flex items-center justify-center">
                     {icon}
