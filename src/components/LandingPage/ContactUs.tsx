@@ -29,21 +29,6 @@ const item = {
     }
 };
 
-const fromLeft = {
-    hidden: { opacity: 0, x: -20 },
-    show: {
-        opacity: 1, x: 0,
-        transition: { duration: 0.5, ease: 'easeOut' as const}
-    }
-};
-
-const fromRight = {
-    hidden: { opacity: 0, x: 20 },
-    show: {
-        opacity: 1, x: 0,
-        transition: { duration: 0.5, ease: 'easeOut' as const}
-    }
-};
 
 export default function HowInfo() {
     return (
