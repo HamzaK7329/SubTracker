@@ -4,6 +4,7 @@ import Features from "@/components/LandingPage/Features";
 import HowInfo from "@/components/LandingPage/HowInfo";
 import WhyUs from "@/components/LandingPage/WhyUs";
 import ContactUs from "@/components/LandingPage/ContactUs";
+import Footer from "@/components/LandingPage/Footer";
 
 export default function LandingPage() {
     return (
@@ -14,6 +15,7 @@ export default function LandingPage() {
             <HowInfo/ >
             <WhyUs/ >
             <ContactUs/ >
+            <Footer />
         </div>
     );
 }
