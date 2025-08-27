@@ -22,7 +22,7 @@ export default function Header() {
             <nav className="flex justify-around w-2xl font-semibold text-base">
                 <Link href="/#top" className="hover:underline hover:text-[#FDDDB4]">Home</Link>
                 <Link href="/#features" className="hover:underline hover:text-[#FDDDB4]">Features</Link>
-                <Link href="/" className="hover:underline hover:text-[#FDDDB4]">Contact</Link>
+                <Link href="/#contactus" className="hover:underline hover:text-[#FDDDB4]">Contact</Link>
                 <Link href="/" className="hover:underline hover:text-[#FDDDB4]">Log In</Link>
             </nav>
         </div>
