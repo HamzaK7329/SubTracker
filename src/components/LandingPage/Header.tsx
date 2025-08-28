@@ -4,6 +4,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
@@ -23,7 +24,12 @@ export default function Header() {
                 <Link href="/#top" className="hover:underline hover:text-[#FDDDB4]">Home</Link>
                 <Link href="/#features" className="hover:underline hover:text-[#FDDDB4]">Features</Link>
                 <Link href="/#contactus" className="hover:underline hover:text-[#FDDDB4]">Contact</Link>
-                <Link href="/" className="hover:underline hover:text-[#FDDDB4]">Log In</Link>
+                <SignedIn>
+                    <Link href="/dashboard" className="hover:underline hover:text-[#FDDDB4]">Dashboard</Link>
+                </SignedIn>
+                <SignedOut>
+                    <Link href="/sign-in" className="hover:underline hover:text-[#FDDDB4]">Log In</Link>
+                </SignedOut>
             </nav>
         </div>
     </header>
