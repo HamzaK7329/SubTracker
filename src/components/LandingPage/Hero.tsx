@@ -3,6 +3,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { SignedIn, SignedOut } from "@clerk/nextjs";
+import Link from "next/link";
 
 const container = {
     hidden: { opacity: 0},
@@ -45,12 +47,19 @@ export default function Hero() {
                 <motion.p className="text-secondary-500 text-xs sm:text-sm md:text-base" variants={item}>Track payments and manage spending effortlessly.</motion.p>
 
                 <motion.div className="flex gap-4 justify-center mt-8" variants={item}>
-                    <button className="px-2 py-1 text-xs sm:text-sm md:text-base sm:px-4 sm:py-2  md:px-6 md:py-3 rounded-lg bg-gradient-to-b from-[#DA903D] to-[#F4A958] text-white font-semibold shadow-lg hover:from-[purple] hover:to-[pink] transition-all duration-200">
-                        Start Tracking
-                    </button>
-                    <button className="px-2 py-1 text-xs sm:text-sm md:text-base sm:px-4 sm:py-2  md:px-6 md:py-3 rounded-lg border bg-black border-[#DA903D] text-white font-semibold ">
+                    <SignedIn>
+                        <Link href="/dashboard" className="px-2 py-1 text-xs sm:text-sm md:text-base sm:px-4 sm:py-2  md:px-6 md:py-3 rounded-lg bg-gradient-to-b from-[#DA903D] to-[#F4A958] text-white font-semibold shadow-lg hover:from-[purple] hover:to-[pink] transition-all duration-200">
+                            Start Tracking
+                        </Link>
+                    </SignedIn>
+                    <SignedOut>
+                        <Link href="/sign-in" className="px-2 py-1 text-xs sm:text-sm md:text-base sm:px-4 sm:py-2  md:px-6 md:py-3 rounded-lg bg-gradient-to-b from-[#DA903D] to-[#F4A958] text-white font-semibold shadow-lg hover:from-[purple] hover:to-[pink] transition-all duration-200">
+                            Start Tracking
+                        </Link>
+                    </SignedOut>
+                    <Link href="/#howitworks" className="px-2 py-1 text-xs sm:text-sm md:text-base sm:px-4 sm:py-2  md:px-6 md:py-3 rounded-lg border bg-black border-[#DA903D] text-white font-semibold ">
                         How It Works
-                    </button>
+                    </Link>
                 </motion.div>
 
             </motion.div>
