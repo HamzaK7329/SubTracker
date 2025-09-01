@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { db } from "@/app/firebaseConfig";
 import { doc, getDoc } from 'firebase/firestore';
 
+import Header from "@/components/Dashboard/Header";
+
 export default function Dashboard() {
     const { userId, isLoaded } = useAuth();
     const router = useRouter();
@@ -40,8 +42,6 @@ export default function Dashboard() {
     }
 
     return (
-        <div className="bg-gradient-to-br from-[#020610] to-[#111724] flex items-center justify-center">
-            <h1 className="text-3xl font-bold text-white">Welcome to your Dashboard!</h1>
-        </div>
+        <Header />
     );
 }
