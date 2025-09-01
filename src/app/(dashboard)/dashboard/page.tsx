@@ -8,6 +8,7 @@ import { doc, getDoc } from 'firebase/firestore';
 
 import Header from "@/components/Dashboard/Header";
 import SectionHeading from "@/components/Dashboard/SectionHeading";
+import MetricsGrid from "@/components/Dashboard/MetricsGrid";
 
 export default function Dashboard() {
     const { userId, isLoaded } = useAuth();
@@ -51,6 +52,7 @@ export default function Dashboard() {
                     subtitle="Your subscription dashboard. Track payments and manage spending effortlessly."
                     className="mt-8"
                     />
+                <MetricsGrid />
             </div>
         </>
     );
