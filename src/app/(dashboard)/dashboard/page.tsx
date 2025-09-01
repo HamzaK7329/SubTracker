@@ -1,35 +1,47 @@
-// src/app/(dashboard)/page.tsx
-import type { Metadata } from "next";
+'use client'
 
-export const metadata: Metadata = {
-    title: "Dashboard",
-    description: "Quick form",
-};
+import { useEffect, useState } from "react";
+import { useAuth } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
+import { db } from "@/app/firebaseConfig";
+import { doc, getDoc } from 'firebase/firestore';
 
 export default function Dashboard() {
+    const { userId, isLoaded } = useAuth();
+    const router = useRouter();
+    const [isChecking, setIsChecking] = useState(true);
+
+    useEffect(() => {
+        const checkOnboarding = async () => {
+            if (!isLoaded || !userId) return;
+
+            try {
+                const userDoc = await getDoc(doc(db, 'users', userId));
+                if (!userDoc.exists()) {
+                    router.push('dashboard/onboarding');
+                    return
+                }
+                setIsChecking(false);
+            } catch (error) {
+                console.log("Error checking onboarding status:", error);
+                setIsChecking(false);
+            }
+
+        };
+        checkOnboarding();
+    }, [isLoaded, userId, router]);
+
+    if (isChecking) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#FDDDB4]"></div>
+            </div>
+        )       
+    }
+
     return (
-        <section className="min-h-screen flex items-center justify-center px-6">
-            <form className="w-full max-w-sm bg-white/5 border border-[#5A5A5A] rounded-lg p-6 backdrop-blur">
-                <div className="mb-4">
-                    <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
-                        Name
-                    </label>
-                    <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        required
-                        placeholder="Your name"
-                        className="w-full rounded-md bg-transparent border border-[#5A5A5A] px-3 py-2 text-white placeholder:text-secondary-500 focus:outline-none focus:ring-2 focus:ring-[#FDDDB4]/60"
-                    />
-                </div>
-                <button
-                    type="submit"
-                    className="w-full rounded-md bg-[#FDDDB4] text-black font-semibold py-2 hover:opacity-90 transition"
-                >
-                    Submit
-                </button>
-            </form>
-        </section>
+        <div className="bg-gradient-to-br from-[#020610] to-[#111724] flex items-center justify-center">
+            <h1 className="text-3xl font-bold text-white">Welcome to your Dashboard!</h1>
+        </div>
     );
 }
