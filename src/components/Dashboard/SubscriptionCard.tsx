@@ -54,11 +54,11 @@ export default function SubscriptionCard ({
             <div className="flex justify-between mt-6">
                 <div>
                     <p className="text-sm text-gray-400 ">Monthly Cost</p>
-                    <p className="text-sm font-semibold text-white ">{price}</p>
+                    <p className="text-lg font-semibold text-white ">{price}</p>
                 </div>
                 <div className="text-right">
                     <p className="text-sm text-gray-400 ">Next Billing</p>
-                    <p className="text-sm font-semibold text-white ">{billingDate}</p>
+                    <p className="text-lg font-semibold text-white ">{billingDate}</p>
                 </div>
             </div>
 

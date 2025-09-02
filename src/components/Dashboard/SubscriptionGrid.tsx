@@ -3,7 +3,7 @@ import SubscriptionCard, { type SubscriptionCardProps } from "./SubscriptionCard
 export default function SubscriptionGrid() {
     const subscriptions: SubscriptionCardProps[] = [
         {
-            logo: "/logo/netflix-logo.webp",
+            logo: "/logos/netflix.png",
             name: "Netflix",
             category: "Entertainment",
             price: "$15.99",
@@ -11,7 +11,7 @@ export default function SubscriptionGrid() {
             status: "Active",
         },
         {
-            logo: "/logo/netflix-logo.webp",
+            logo: "/logos/netflix.png",
             name: "Netflix",
             category: "Entertainment",
             price: "$15.99",
@@ -19,7 +19,7 @@ export default function SubscriptionGrid() {
             status: "Active",
         },
         {
-            logo: "/logo/netflix-logo.webp",
+            logo: "/logos/netflix.png",
             name: "Netflix",
             category: "Entertainment",
             price: "$15.99",
@@ -27,7 +27,23 @@ export default function SubscriptionGrid() {
             status: "Active",
         },
         {
-            logo: "/logo/netflix-logo.webp",
+            logo: "/logos/netflix.png",
+            name: "Netflix",
+            category: "Entertainment",
+            price: "$15.99",
+            billingDate: "Aug 26, 2025",
+            status: "Active",
+        },
+        {
+            logo: "/logos/netflix.png",
+            name: "Netflix",
+            category: "Entertainment",
+            price: "$15.99",
+            billingDate: "Aug 26, 2025",
+            status: "Active",
+        },
+        {
+            logo: "/logos/netflix.png",
             name: "Netflix",
             category: "Entertainment",
             price: "$15.99",

@@ -8,7 +8,7 @@ interface MetricsCardProps {
 
 export default function MetricsCard({ label, value, icon, className = "" }: MetricsCardProps) {
     return (
-        <div className={`bg-white/5 border border-[#5A5A5A] rounded-lg p-6 backdrop-blur ${className}`}>
+        <div className={`bg-[#131720] border border-[#252934] rounded-lg p-6 backdrop-blur ${className}`}>
             <div className="flex items-center justify-between">
                 <div className="flex flex-col">
                     <p className="text-secondary-500 text-sm mb-2">{label}</p>
