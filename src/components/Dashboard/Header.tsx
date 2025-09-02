@@ -49,7 +49,7 @@ export default function DashboardHeader() {
                 <div className='flex items-center gap-3'>
                     <Link
                         href="/upgrade"
-                        className='px-4 py-2 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[#DA903D] to-[#F4A958] hover:opacity-90 transition '
+                        className='px-4 py-2 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[#FC7318] to-[#E9B115] hover:opacity-90 transition '
                     >
                         Upgrade to Plus
                     </Link>
