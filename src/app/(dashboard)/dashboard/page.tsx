@@ -10,6 +10,7 @@ import Header from "@/components/Dashboard/Header";
 import SectionHeading from "@/components/Dashboard/SectionHeading";
 import MetricsGrid from "@/components/Dashboard/MetricsGrid";
 import { AddSubscriptionButton } from "@/components/Dashboard/AddSubscriptionButton";
+import SubscriptionGrid from "@/components/Dashboard/SubscriptionGrid";
 
 export default function Dashboard() {
     const { userId, isLoaded } = useAuth();
@@ -61,6 +62,7 @@ export default function Dashboard() {
                     title="Your Subscriptions"
                     className="mt-8"
                     />
+                <SubscriptionGrid />
             </div>
         </>
     );
