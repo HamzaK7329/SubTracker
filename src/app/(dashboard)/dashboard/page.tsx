@@ -10,12 +10,15 @@ import Header from "@/components/Dashboard/Header";
 import SectionHeading from "@/components/Dashboard/SectionHeading";
 import MetricsGrid from "@/components/Dashboard/MetricsGrid";
 import { AddSubscriptionButton } from "@/components/Dashboard/AddSubscriptionButton";
+import AddSubscriptionModal from "@/components/Dashboard/AddSubscriptionModal";
 import { SubscriptionGrid } from "@/components/Dashboard/SubscriptionGrid";
 
 export default function Dashboard() {
     const { userId, isLoaded } = useAuth();
     const router = useRouter();
     const [isChecking, setIsChecking] = useState(true);
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         const checkOnboarding = async () => {
@@ -57,6 +60,11 @@ export default function Dashboard() {
                 <MetricsGrid />
                 <AddSubscriptionButton
                     className="mt-6"
+                    onClick={() => setIsModalOpen(true)}
+                />
+                <AddSubscriptionModal
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
                 />
                 <SectionHeading
                     title="Your Subscriptions"
