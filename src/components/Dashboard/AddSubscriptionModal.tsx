@@ -8,15 +8,7 @@ import { useAuth } from "@clerk/nextjs";
 import ServiceCombobox, { ServiceOption } from '@/components/Dashboard/ServiceComoBox';
 import CategoryCombobox from "./CategoryComboBox";
 import { DEFAULT_CATEGORIES } from "./categories";
-
-// Popular services (logo files live in /public/logos/*)
-export const POPULAR_SERVICES = [
-    { id: 'netflix', name: 'Netflix', category: 'Entertainment', logo: '/logos/netflix.png' },
-    { id: 'spotify', name: 'Spotify', category: 'Music', logo: '/logos/spotify.png' },
-    { id: 'prime', name: 'Prime Video', category: 'Entertainment', logo: '/logos/prime.png' },
-    { id: 'adobe', name: 'Adobe', category: 'Productivity', logo: '/logos/adobe.png' },
-    { id: 'hulu', name: 'Hulu', category: 'Entertainment', logo: '/logos/hulu.png' },
-  ];
+import { POPULAR_SERVICES } from "./popularSubscriptions";
   
   
 

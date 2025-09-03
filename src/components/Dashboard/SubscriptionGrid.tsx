@@ -30,7 +30,7 @@ export function SubscriptionGrid({ uid }: { uid: string }) {
             {subs.map((s) => (
                 <SubscriptionCard
                 key={s.id}
-                logo={`/logos/${s.name.toLowerCase()}.png`}
+                logo={`/logos/${s.name.toLowerCase()}.jpg`}
                 name={s.name}
                 category={s.category ?? "General"}
                 price={`$ ${s.amount.toString()}`}
