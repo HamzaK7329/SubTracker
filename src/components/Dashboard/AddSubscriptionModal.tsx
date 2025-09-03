@@ -40,7 +40,7 @@ export default function AddSubscriptionModal({ isOpen, onClose }: Props) {
             const subsRef = collection(doc(db, 'users', userId), 'subscriptions');
             await addDoc(subsRef, {
                 name: service,
-                category: category || "Genera;",
+                category: category || "General",
                 amount: parseFloat(cost),
                 currency: "USD",
                 cycle: billingCycle.toLocaleLowerCase(),
@@ -103,8 +103,10 @@ export default function AddSubscriptionModal({ isOpen, onClose }: Props) {
                                 onChange={(e) => setBillingCycle(e.target.value)}
                                 className="w-full mt-1 px-3 py-2 rounded bg-[#0f1117] border border-[#2A2A2A] text-white "
                             >
+                                <option>Daily</option>
                                 <option>Weekly</option>
                                 <option>Monthly</option>
+                                <option>Quarterly</option>
                                 <option>Yearly</option>
                             </select>
                         </div>
