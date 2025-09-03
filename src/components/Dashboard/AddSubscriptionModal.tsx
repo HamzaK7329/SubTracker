@@ -6,6 +6,8 @@ import { collection, doc, addDoc, serverTimestamp } from "firebase/firestore";
 import { useAuth } from "@clerk/nextjs";
 
 import ServiceCombobox, { ServiceOption } from '@/components/Dashboard/ServiceComoBox';
+import CategoryCombobox from "./CategoryComboBox";
+import { DEFAULT_CATEGORIES } from "./categories";
 
 // Popular services (logo files live in /public/logos/*)
 export const POPULAR_SERVICES = [
@@ -126,11 +128,14 @@ export default function AddSubscriptionModal({ isOpen, onClose }: Props) {
 
                     <div>
                         <label className="text-sm text-gray-300">Category</label>
-                        <input
-                        value={category}
-                        onChange={(e) => setCategory(e.target.value)}
-                        className="w-full mt-1 px-3 py-2 rounded bg-[#0f1117] border border-[#2A2A2A] text-white"
-                        placeholder="Entertainment, Productivity..."
+                        <CategoryCombobox
+                            options={DEFAULT_CATEGORIES}
+                            value={category}
+                            onChange={(opt) => {
+                                const name = 'name' in opt ? opt.name : (opt as any).name;
+                                setCategory(name);
+                            }}
+                            className="mt-1"
                         />
                     </div>
 
