@@ -5,6 +5,19 @@ import { db } from "@/app/firebaseConfig";
 import { collection, doc, addDoc, serverTimestamp } from "firebase/firestore";
 import { useAuth } from "@clerk/nextjs";
 
+import ServiceCombobox, { ServiceOption } from '@/components/Dashboard/ServiceComoBox';
+
+// Popular services (logo files live in /public/logos/*)
+export const POPULAR_SERVICES = [
+    { id: 'netflix', name: 'Netflix', category: 'Entertainment', logo: '/logos/netflix.png' },
+    { id: 'spotify', name: 'Spotify', category: 'Music', logo: '/logos/spotify.png' },
+    { id: 'prime', name: 'Prime Video', category: 'Entertainment', logo: '/logos/prime.png' },
+    { id: 'adobe', name: 'Adobe', category: 'Productivity', logo: '/logos/adobe.png' },
+    { id: 'hulu', name: 'Hulu', category: 'Entertainment', logo: '/logos/hulu.png' },
+  ];
+  
+  
+
 type Props = {
     isOpen: boolean;
     onClose: () => void;
@@ -54,12 +67,19 @@ export default function AddSubscriptionModal({ isOpen, onClose }: Props) {
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                         <label className="text-sm text-gray-300" >Service</label>
-                        <input
+                        <ServiceCombobox
+                            options={POPULAR_SERVICES}
                             value={service}
-                            onChange={(e) => setService(e.target.value)}
-                            className="w-full mt-1 px-3 py-2 rounded bg-[#0f1117] border border-[#2A2A2A] text-white "
-                            placeholder="e.g. Netflix"
-                            required
+                            onChange={(opt) => {
+                                const name = 'name' in opt ? opt.name : (opt as any).name;
+                                setService(name);
+                                // Prefill when we have metadata
+                                if ('id' in opt && opt.id !== 'custom') {
+                                const svc = POPULAR_SERVICES.find(s => s.id === opt.id as string);
+                                if (svc?.category) setCategory(svc.category);
+                                }
+                            }}
+                            className="mt-1"
                         />
                     </div>
 
