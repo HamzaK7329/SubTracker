@@ -1,7 +1,7 @@
 // src/components/Dashboard/MetricsCard.tsx
 interface MetricsCardProps {
     label: string;
-    value: string;
+    value: any;
     icon: React.ReactNode;
     className?: string;
 }
