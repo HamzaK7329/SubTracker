@@ -6,6 +6,7 @@ import { collection, doc, onSnapshot, orderBy, query, where, Timestamp, getDoc }
 
 type SubDoc = {
     id: string;
+    name: string;
     amount: number;
     currency: string;
     cycle: 'daily' | 'weekly' | 'monthly' | 'quaterly' | 'yearly';
@@ -73,6 +74,14 @@ export function useSubscriptionMetrics(uid?: string) {
     }, [uid]);
 
     const metrics = useMemo(() => {
+        const norm = subs.map(s => ({
+            ...s,
+            status: (s.status ?? 'active').toLowerCase() as SubDoc['status'],
+            cycle: (s.cycle ?? 'monthly').toLowerCase() as SubDoc['cycle'],
+            interval: s.interval ?? 1,
+            amount: Number(s.amount) || 0,
+        }));
+
         if (!subs.length) {
             return {
                 monthlyTotal: 0,
@@ -94,11 +103,33 @@ export function useSubscriptionMetrics(uid?: string) {
             .filter((d): d is Date => !!d)
             .sort((a, b) => a.getTime() - b.getTime())[0];
 
+        const active = norm.filter(s => s.status === 'active');
+        const paused = norm.filter(s => s.status === 'paused');
+
+        const withMonthly = active
+            .map(s => ({ ...s, monthly: monthlyEquivalent(s.amount, s.cycle, s.interval)}))
+            .sort((a, b) => b.monthly - a.monthly);
+
+        const mostExpensive = withMonthly[0];
+        const now = new Date();
+        const end = new Date();
+        end.setDate(end.getDate() + 7);
+        end.setHours(23, 59, 59, 999);
+
+        const dueThisWeekCount = active.filter(s => {
+            const d = s.nextChargeAt?.toDate();
+            return d && d >= now && d <= end;
+        }).length;
+
         return {
             monthlyTotal,
             yearlyTotal,
             activeCount: subs.length,
             nextPaymentDate: upcoming,
+            mostExpensiveName: mostExpensive?.name,
+            mostExpensiveValue: mostExpensive?.monthly ?? 0,
+            pausedCount: paused.length,
+            dueThisWeekCount,
         };
 
     }, [subs]);
@@ -135,6 +166,12 @@ export function useSubscriptionMetrics(uid?: string) {
         yearlyLabel: fmtCurrency(metrics.yearlyTotal),
         activeCountLabel: String(metrics.activeCount),
         nextPaymentLabel: fmtNextPayment(metrics.nextPaymentDate),
+
+        mostExpensiveLabel: metrics.mostExpensiveName
+            ? `${metrics.mostExpensiveName} - ${fmtCurrency(metrics.mostExpensiveValue)}`
+            : '-',
+        pausedLabel: String(metrics.pausedCount),
+        dueThisWeekLabel: `${metrics.dueThisWeekCount} Subscription${metrics.dueThisWeekCount === 1 ? '' : 's'}`,
     };
 
 }

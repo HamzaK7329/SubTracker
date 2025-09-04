@@ -16,7 +16,7 @@ export default function MetricsGrid() {
         return (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[...Array(4)].map((_, i) => (
-                    <div key={i} className="bg-[#131720] border b-[#252934] rounded-lg p-6 animation-pulse h-[120px]" />
+                    <div key={i} className="bg-[#131720] border b-[#252934] rounded-lg p-6 animate-pulse h-[120px]" />
                 ))}
             </div>
         );

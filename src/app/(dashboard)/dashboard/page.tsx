@@ -12,6 +12,7 @@ import MetricsGrid from "@/components/Dashboard/MetricsGrid";
 import { AddSubscriptionButton } from "@/components/Dashboard/AddSubscriptionButton";
 import AddSubscriptionModal from "@/components/Dashboard/AddSubscriptionModal";
 import { SubscriptionGrid } from "@/components/Dashboard/SubscriptionGrid";
+import QuickInsights from "@/components/Dashboard/QuickInsights";
 
 export default function Dashboard() {
     const { userId, isLoaded } = useAuth();
@@ -71,6 +72,7 @@ export default function Dashboard() {
                     className="mt-8"
                     />
                 <SubscriptionGrid uid={`${userId}`} />
+                <QuickInsights />
             </div>
         </>
     );
