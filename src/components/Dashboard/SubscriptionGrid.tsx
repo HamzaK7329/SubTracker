@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { db } from "@/app/firebaseConfig";
 import { collection, doc, onSnapshot, orderBy, query, Timestamp } from "firebase/firestore";
 import SubscriptionCard from "./SubscriptionCard";
+import { useSubscriptionMetrics } from "@/hooks/useSubscriptionMetrics";
+import { useAuth } from "@clerk/nextjs";
 
 type SubDoc = {
     id: string;
@@ -14,6 +16,8 @@ type SubDoc = {
 };
 
 export function SubscriptionGrid({ uid }: { uid: string }) {
+    const { userId, isLoaded } = useAuth();
+    const { userCurrency } = useSubscriptionMetrics(isLoaded ? userId ?? undefined : undefined);
     const [subs, setSubs ] = useState<SubDoc[]>([]);
 
     useEffect(() => {
@@ -33,7 +37,7 @@ export function SubscriptionGrid({ uid }: { uid: string }) {
                 logo={`/logos/${s.name.toLowerCase()}.jpg`}
                 name={s.name}
                 category={s.category ?? "General"}
-                price={`$ ${s.amount.toString()}`}
+                price={`${userCurrency} ${s.amount.toString()}`}
                 billingDate={s.nextChargeAt ? s.nextChargeAt.toDate().toLocaleDateString(undefined, { month: "short", day: "2-digit", year: "numeric" }) : "—"}
                 status={s.status === "paused" ? "Paused" : "Active"}
                 />
