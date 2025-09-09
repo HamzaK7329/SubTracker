@@ -30,7 +30,7 @@ export default function SubscriptionCard ({
 
 
     return (
-        <div className="flex flex-col rounded-xl bg-[#131720] p-4 border-[#252934] w-full max-w-sm ">
+        <div className="flex flex-col rounded-xl bg-[#131720] p-4 border-[#252934] w-full max-w-sm">
             <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
                     <img 
