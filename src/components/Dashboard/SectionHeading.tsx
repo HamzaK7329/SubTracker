@@ -1,3 +1,6 @@
+import { motion } from 'framer-motion';
+import { container, item } from '../animation';
+
 interface SectionHeadingProps {
     title: string,
     subtitle?: string,
@@ -6,8 +9,12 @@ interface SectionHeadingProps {
 
 export default function SectionHeading({ title, subtitle, className = ""}: SectionHeadingProps) {
     return (
-        <div className={`mx-auto w-full max-w-7xl  ${className}`}>
-            <div className={`mb-8 ${className}`}>
+        <motion.div className={`mx-auto w-full max-w-7xl  ${className}`}
+            variants={container}
+            initial="hidden"
+            animate="show"
+        >
+            <motion.div className={`mb-8 ${className}`} variants={item}>
                 <h1 className="text-3xl md:text-3xl font-semibold text-white mb-3">
                     {title}
                 </h1>
@@ -16,7 +23,7 @@ export default function SectionHeading({ title, subtitle, className = ""}: Secti
                         {subtitle}
                     </p>
                 )}
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     )
 }
