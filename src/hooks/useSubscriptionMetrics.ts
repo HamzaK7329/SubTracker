@@ -166,6 +166,9 @@ export function useSubscriptionMetrics(uid?: string) {
     return {
         loading,
         userCurrency,
+        monthlyTotal: metrics.monthlyTotal,
+        yearlyTotal: metrics.yearlyTotal,
+        activeCount: metrics.activeCount,
         monthlyLabel: fmtCurrency(metrics.monthlyTotal),
         yearlyLabel: fmtCurrency(metrics.yearlyTotal),
         activeCountLabel: String(metrics.activeCount),

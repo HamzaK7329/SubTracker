@@ -6,9 +6,10 @@ export default function MetricsGrid() {
     const { userId, isLoaded } = useAuth();
     const {
         loading,
-        monthlyLabel,
-        yearlyLabel,
-        activeCountLabel,
+        userCurrency,
+        monthlyTotal,
+        yearlyTotal,
+        activeCount,
         nextPaymentLabel,
     } = useSubscriptionMetrics(isLoaded ? userId ?? undefined : undefined);
 
@@ -25,22 +26,28 @@ export default function MetricsGrid() {
     const metrics = [
         {
             label: 'Monthly Cost',
-            value: monthlyLabel,
+            value: monthlyTotal,
+            type: "currency",
+            currency: userCurrency,
             icon: <img src="https://www.svgrepo.com/show/456912/sign-dollar.svg" width={24} height={24} className="inline-block filter invert" />
         },
         {
             label: 'Yearly Cost',
-            value: yearlyLabel,
+            value: yearlyTotal,
+            type: "currency",
+            currency: userCurrency,
             icon: <img src="https://www.svgrepo.com/show/456912/sign-dollar.svg" width={24} height={24} className="inline-block filter invert" />
         },
         {
             label: 'Active Subscriptions',
-            value: activeCountLabel,
+            value: activeCount,
+            type: "count",
             icon: <img src="https://www.svgrepo.com/show/456912/sign-dollar.svg" width={24} height={24} className="inline-block filter invert" />
         },
         {
             label: 'Next Payment',
             value: nextPaymentLabel,
+            type: "text",
             icon: <img src="https://www.svgrepo.com/show/456912/sign-dollar.svg" width={24} height={24} className="inline-block filter invert" />
         }
     ];
@@ -48,7 +55,7 @@ export default function MetricsGrid() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {metrics.map((m, i) => (
-                <MetricsCard key={i} label={m.label} value={m.value} icon={m.icon} />
+                <MetricsCard key={i} label={m.label} value={m.value} currency={m.currency} icon={m.icon} type={m.type} />
             ))}
         </div>
     )
