@@ -26,22 +26,22 @@ export default function MetricsGrid() {
         {
             label: 'Monthly Cost',
             value: monthlyLabel,
-            icon: <img src="https://www.svgrepo.com/show/456912/sign-dollar.svg" width={24} height={24} className="inline-block" />
+            icon: <img src="https://www.svgrepo.com/show/456912/sign-dollar.svg" width={24} height={24} className="inline-block filter invert" />
         },
         {
             label: 'Yearly Cost',
             value: yearlyLabel,
-            icon: <img src="https://www.svgrepo.com/show/456912/sign-dollar.svg" width={24} height={24} className="inline-block" />
+            icon: <img src="https://www.svgrepo.com/show/456912/sign-dollar.svg" width={24} height={24} className="inline-block filter invert" />
         },
         {
             label: 'Active Subscriptions',
             value: activeCountLabel,
-            icon: <img src="https://www.svgrepo.com/show/456912/sign-dollar.svg" width={24} height={24} className="inline-block" />
+            icon: <img src="https://www.svgrepo.com/show/456912/sign-dollar.svg" width={24} height={24} className="inline-block filter invert" />
         },
         {
             label: 'Next Payment',
             value: nextPaymentLabel,
-            icon: <img src="https://www.svgrepo.com/show/456912/sign-dollar.svg" width={24} height={24} className="inline-block" />
+            icon: <img src="https://www.svgrepo.com/show/456912/sign-dollar.svg" width={24} height={24} className="inline-block filter invert" />
         }
     ];
 
