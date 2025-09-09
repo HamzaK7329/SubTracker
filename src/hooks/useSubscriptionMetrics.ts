@@ -88,6 +88,10 @@ export function useSubscriptionMetrics(uid?: string) {
                 yearlyTotal: 0,
                 activeCount: 0,
                 nextPaymentDate: undefined as Date | undefined,
+                mostExpensiveName: undefined as String | undefined,
+                mostExpensiveValue: 0,
+                pausedCount: 0,
+                dueThisWeekCount: 0,
             }
         }
 
