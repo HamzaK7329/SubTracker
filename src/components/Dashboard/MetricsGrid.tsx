@@ -1,6 +1,8 @@
 import MetricsCard from "./MetricsCard";
 import { useAuth } from "@clerk/nextjs";
 import { useSubscriptionMetrics } from "@/hooks/useSubscriptionMetrics";
+import { motion } from 'framer-motion';
+import { container, item } from '../animation';
 
 export default function MetricsGrid() {
     const { userId, isLoaded } = useAuth();
@@ -53,11 +55,18 @@ export default function MetricsGrid() {
     ];
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            variants={container}
+            initial="hidden"
+            animate="show"
+            >
             {metrics.map((m, i) => (
-                <MetricsCard key={i} label={m.label} value={m.value} currency={m.currency} icon={m.icon} type={m.type} />
+                <motion.div key={i} variants={item}>
+                    <MetricsCard key={i} label={m.label} value={m.value} currency={m.currency} icon={m.icon} type={m.type} />
+                </motion.div>
             ))}
-        </div>
+        </motion.div>
     )
 
 }
