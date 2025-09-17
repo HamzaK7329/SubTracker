@@ -10,7 +10,6 @@ import CategoryCombobox from "./CategoryComboBox";
 import { DEFAULT_CATEGORIES } from "./categories";
 import { POPULAR_SERVICES } from "./popularSubscriptions";
   
-  
 
 type Props = {
     isOpen: boolean;
