@@ -1,5 +1,7 @@
 'use client';
 
+import React, { useState, useRef, useEffect } from 'react';
+
 export type SubscriptionCardProps = {
     logo: string;
     name: string;
@@ -28,6 +30,24 @@ export default function SubscriptionCard ({
             : 'bg-red-500'
         );
 
+    const [menuOpen, setMenuOpen] = useState(false);
+    const menuRef = useRef<HTMLDivElement>(null);
+
+    // Close menu when clicking outside
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+                setMenuOpen(false);
+            }
+        }
+        if (menuOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+    }, [menuOpen]);
+
 
     return (
         <div className="flex flex-col rounded-xl bg-[#131720] p-4 border-[#252934] w-full max-w-sm">
@@ -42,8 +62,44 @@ export default function SubscriptionCard ({
                         <h3 className="text-base font-semibold text-white">{name}</h3>
                         <p className="text-sm text-gray-400">{category}</p>
                     </div>
-
                 </div>
+                
+                <div className="relative" ref={menuRef}>
+                    <button
+                        className='p-1 rounded-full hover:bg-gray-700 transition mb-1'
+                        onClick={() => setMenuOpen((open) => !open)}
+                        aria-label='Open menu'
+                    >
+                        <svg width="20" height="20" fill='currentColor' className='text-gray-400' >
+                            <circle cx="4" cy="10" r="2" />
+                            <circle cx="10" cy="10" r="2" />
+                            <circle cx="16" cy="10" r="2" />
+                        </svg>
+                    </button>
+                    {menuOpen && (
+                        <div className='absolute right-0 top-8 z-10 w-40 bg-[#23272f] rounded-lg shadow-lg py-2'>
+                            <button
+                                className='block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-700'
+                                onClick={() => {
+                                    setMenuOpen(false);
+                                    // handle edit logic here
+                                }}
+                            >
+                                Edit Subscription
+                            </button>
+                            <button
+                                className='block w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-gray-700'
+                                onClick={() => {
+                                    setMenuOpen(false);
+                                    // handle delete logic here
+                                }}
+                            >
+                                Delete Subscription
+                            </button>
+                        </div>
+                    )}
+                </div>
+
                 <span
                     className={`px-3 py-1 rounded-full text-xs font-medium text-black ${statusBg}`}
                 >
