@@ -63,7 +63,7 @@ export default function SubscriptionCard ({
                         <p className="text-sm text-gray-400">{category}</p>
                     </div>
                 </div>
-                
+                <div className='flex flex-col items-center'>
                 <div className="relative" ref={menuRef}>
                     <button
                         className='p-1 rounded-full hover:bg-gray-700 transition mb-1'
@@ -88,6 +88,15 @@ export default function SubscriptionCard ({
                                 Edit Subscription
                             </button>
                             <button
+                                className='block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-700'
+                                onClick={() => {
+                                    setMenuOpen(false);
+                                    // handle pause logic here
+                                }}
+                            >
+                                Pause Subscription
+                            </button>
+                            <button
                                 className='block w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-gray-700'
                                 onClick={() => {
                                     setMenuOpen(false);
@@ -105,7 +114,9 @@ export default function SubscriptionCard ({
                 >
                     {status}
                 </span>
+                </div>
             </div>
+            
 
             <div className="flex justify-between mt-6">
                 <div>
