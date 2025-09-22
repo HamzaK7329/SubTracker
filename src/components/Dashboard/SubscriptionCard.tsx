@@ -10,6 +10,7 @@ export type SubscriptionCardProps = {
     billingDate: string;
     status: 'Active' | 'Paused';
     statusColor?: string;
+    onEdit?: () => void;
 };
 
 export default function SubscriptionCard ({
@@ -20,6 +21,7 @@ export default function SubscriptionCard ({
     billingDate,
     status,
     statusColor,
+    onEdit,
 }: SubscriptionCardProps) {
     const statusBg =
         statusColor ||
@@ -32,6 +34,8 @@ export default function SubscriptionCard ({
 
     const [menuOpen, setMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+    
+   
 
     // Close menu when clicking outside
     useEffect(() => {
@@ -82,7 +86,7 @@ export default function SubscriptionCard ({
                                 className='block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-700'
                                 onClick={() => {
                                     setMenuOpen(false);
-                                    // handle edit logic here
+                                    if (onEdit) onEdit();
                                 }}
                             >
                                 Edit Subscription

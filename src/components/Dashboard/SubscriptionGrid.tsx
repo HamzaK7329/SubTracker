@@ -4,6 +4,7 @@ import { collection, doc, onSnapshot, orderBy, query, Timestamp } from "firebase
 import SubscriptionCard from "./SubscriptionCard";
 import { useSubscriptionMetrics } from "@/hooks/useSubscriptionMetrics";
 import { useAuth } from "@clerk/nextjs";
+import EditSubscriptionModal from "./EditSubscriptionModal";
 
 type SubDoc = {
     id: string;
@@ -19,6 +20,13 @@ export function SubscriptionGrid({ uid }: { uid: string }) {
     const { userId, isLoaded } = useAuth();
     const { userCurrency } = useSubscriptionMetrics(isLoaded ? userId ?? undefined : undefined);
     const [subs, setSubs ] = useState<SubDoc[]>([]);
+    const [editModalOpen, setEditModalOpen] = useState(false);
+    const [selectedSubscription, setSelectedSubscription] = useState(null);
+
+    function handleEdit(sub: any) {
+        setSelectedSubscription(sub);
+        setEditModalOpen(true);
+    }
 
     useEffect(() => {
         const subsRef = collection(doc(db, "users", uid), "subscriptions");
@@ -40,8 +48,14 @@ export function SubscriptionGrid({ uid }: { uid: string }) {
                 price={`${userCurrency} ${s.amount.toString()}`}
                 billingDate={s.nextChargeAt ? s.nextChargeAt.toDate().toLocaleDateString(undefined, { month: "short", day: "2-digit", year: "numeric" }) : "—"}
                 status={s.status === "paused" ? "Paused" : "Active"}
+                onEdit={() => handleEdit(s)}
                 />
             ))}
+            <EditSubscriptionModal
+                isOpen={editModalOpen}
+                onClose={() => setEditModalOpen(false)}
+                subscription={selectedSubscription}
+            />
         </div>
     );
 
