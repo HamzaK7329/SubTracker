@@ -11,6 +11,9 @@ export type SubscriptionCardProps = {
     status: 'Active' | 'Paused';
     statusColor?: string;
     onEdit?: () => void;
+    onPause?: () => void;
+    onStart?: () => void;
+    onDelete?: () => void;
 };
 
 export default function SubscriptionCard ({
@@ -22,6 +25,9 @@ export default function SubscriptionCard ({
     status,
     statusColor,
     onEdit,
+    onPause,
+    onStart,
+    onDelete,
 }: SubscriptionCardProps) {
     const statusBg =
         statusColor ||
@@ -91,20 +97,33 @@ export default function SubscriptionCard ({
                             >
                                 Edit Subscription
                             </button>
-                            <button
+                            {status === 'Active' ? (
+                                <button
                                 className='block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-700'
                                 onClick={() => {
                                     setMenuOpen(false);
-                                    // handle pause logic here
+                                    if (onPause) onPause();
                                 }}
                             >
                                 Pause Subscription
                             </button>
+                            ) : (
+                                <button
+                                className='block w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-700'
+                                onClick={() => {
+                                    setMenuOpen(false);
+                                    if (onStart) onStart();
+                                }}
+                            >
+                                Start Subscription
+                            </button>
+                            )}
+                            
                             <button
                                 className='block w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-gray-700'
                                 onClick={() => {
                                     setMenuOpen(false);
-                                    // handle delete logic here
+                                    if (onDelete) onDelete();
                                 }}
                             >
                                 Delete Subscription

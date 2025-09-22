@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { db } from "@/app/firebaseConfig";
-import { collection, doc, onSnapshot, orderBy, query, Timestamp } from "firebase/firestore";
+import { collection, doc, onSnapshot, orderBy, query, Timestamp, updateDoc, deleteDoc } from "firebase/firestore";
 import SubscriptionCard from "./SubscriptionCard";
 import { useSubscriptionMetrics } from "@/hooks/useSubscriptionMetrics";
 import { useAuth } from "@clerk/nextjs";
@@ -28,6 +28,40 @@ export function SubscriptionGrid({ uid }: { uid: string }) {
         setEditModalOpen(true);
     }
 
+    async function handlePause(sub: any) {
+        if (!userId || !sub.id) return;
+        try {
+            const subDoc = doc(db, 'users', userId, 'subscriptions', sub.id);
+            await updateDoc(subDoc, { status: 'paused' });
+            // i can refresh the list here
+        } catch (err) {
+            console.error("Error pausing subscription: ", err);
+        }
+
+    };
+
+    async function handleStart(sub: any) {
+        if (!userId || !sub.id) return;
+        try {
+            const subDoc = doc(db, 'users', userId, 'subscriptions', sub.id);
+            await updateDoc(subDoc, { status: 'active' });
+            // i can refresh the list here
+        } catch (err) {
+            console.error("Error starting subscription: ", err);
+        }
+
+    };
+
+    async function handleDelete(sub: any) {
+        if (!userId || !sub.id) return;
+        try {
+            const subDoc = doc(db, 'users', userId, 'subscriptions', sub.id);
+            await deleteDoc(subDoc)
+        } catch (err) {
+            console.error("Error deleting subscription ", err);
+        }
+    };
+
     useEffect(() => {
         const subsRef = collection(doc(db, "users", uid), "subscriptions");
         const q = query(subsRef, orderBy("nextChargeAt", "asc"));
@@ -49,6 +83,9 @@ export function SubscriptionGrid({ uid }: { uid: string }) {
                 billingDate={s.nextChargeAt ? s.nextChargeAt.toDate().toLocaleDateString(undefined, { month: "short", day: "2-digit", year: "numeric" }) : "—"}
                 status={s.status === "paused" ? "Paused" : "Active"}
                 onEdit={() => handleEdit(s)}
+                onPause={() => handlePause(s)}
+                onStart={() => handleStart(s)}
+                onDelete={() => handleDelete(s)}
                 />
             ))}
             <EditSubscriptionModal
