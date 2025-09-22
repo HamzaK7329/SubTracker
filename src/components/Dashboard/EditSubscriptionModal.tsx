@@ -21,7 +21,7 @@ type Props = {
     };
 };
 
-export default function EditSubscriptionModal({ isOpen, onClose, subscription }: any) {
+export default function EditSubscriptionModal({ isOpen, onClose, subscription }: Props) {
     const { userId } = useAuth();
 
     const [service, setService] = useState(subscription?.name || '');
@@ -29,7 +29,7 @@ export default function EditSubscriptionModal({ isOpen, onClose, subscription }:
     const [billingCycle, setBillingCycle] = useState(subscription?.cycle || 'Monthly');
     const [nextBillingDate, setNextBillingDate] = useState(
         subscription?.nextChargeAt
-            ? new Date(subscription.nextChargeAt)
+            ? new Date(subscription.nextChargeAt).toDateString()
             : ''
     );
     const [category, setCategory] = useState(subscription?.category || '');
@@ -40,7 +40,7 @@ export default function EditSubscriptionModal({ isOpen, onClose, subscription }:
         setBillingCycle(subscription?.cycle || 'Monthly');
         setNextBillingDate(
             subscription?.nextChargeAt
-                ? new Date(subscription.nextChargeAt)
+                ? new Date(subscription.nextChargeAt).toDateString()
                 : ''
         );
         setCategory(subscription?.category || '');
@@ -73,7 +73,7 @@ export default function EditSubscriptionModal({ isOpen, onClose, subscription }:
         <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
         <div className="bg-[#1a1d29] w-full max-w-md rounded-lg p-6 shadow-lg ">
             <h2 className="text-white text-lg font-semibold mb-4">
-                Add New Subscription
+                Edit Subscription
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -162,7 +162,7 @@ export default function EditSubscriptionModal({ isOpen, onClose, subscription }:
                         type="submit"
                         className="px-4 py-2 min-w-43 rounded bg-gradient-to-r from-[#F77519] to-[#F88D44] text-white font-semibold hover:opacity-90"
                     >
-                        Add Subscription
+                        Edit Subscription
                     </button>
 
                 </div>
