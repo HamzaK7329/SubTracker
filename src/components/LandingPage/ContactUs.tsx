@@ -13,13 +13,6 @@ const container = {
     }
 };
 
-const featureContainer = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: { staggerChildren: 0.4, delayChildren: 0.1 }
-    }
-};
 
 const item = {
     hidden: { opacity: 0, y: 20 },
@@ -43,7 +36,7 @@ export default function HowInfo() {
                 <motion.h1 className="text-2xl max-w-4xl sm:text-3xl md:text-6xl font-bold bg-gradient-to-r from-[#FDDDB4] to-[#F0EBDF] bg-clip-text text-transparent" variants={item}>
                     Get In Touch</motion.h1>
                 <motion.p className="text-secondary-500 pt-5 text-xs sm:text-sm md:text-base" variants={item}>
-                    Have questions about App? Want to suggest a new feature or report an issue? We'd love to hear from you!</motion.p>
+                    Have questions about App? Want to suggest a new feature or report an issue? We&#39;d love to hear from you!</motion.p>
                 
                 <motion.div className="mt-15 text-left" variants={item}>
                     <ContactForm />

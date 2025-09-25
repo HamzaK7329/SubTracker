@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { db } from "@/app/firebaseConfig";
-import { collection, doc, onSnapshot, orderBy, query, where, Timestamp, getDoc } from "firebase/firestore";
+import { collection, doc, onSnapshot, query, where, Timestamp, getDoc } from "firebase/firestore";
 
 type SubDoc = {
     id: string;
@@ -63,7 +63,7 @@ export function useSubscriptionMetrics(uid?: string) {
             q,
             snap => {
                 console.log('subs count:', snap.size);
-                const rows = snap.docs.map(d => ({ id: d.id, ...(d.data() as any) })) as SubDoc[];
+                const rows = snap.docs.map(d => ({ id: d.id, ...(d.data() as Omit<SubDoc, "id">) })) as SubDoc[];
                 setSubs(rows);
                 setLoading(false);
             },

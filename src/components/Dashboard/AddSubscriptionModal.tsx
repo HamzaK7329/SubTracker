@@ -5,7 +5,7 @@ import { db } from "@/app/firebaseConfig";
 import { collection, doc, addDoc, serverTimestamp } from "firebase/firestore";
 import { useAuth } from "@clerk/nextjs";
 
-import ServiceCombobox, { ServiceOption } from '@/components/Dashboard/ServiceComoBox';
+import ServiceCombobox from '@/components/Dashboard/ServiceComoBox';
 import CategoryCombobox from "./CategoryComboBox";
 import { DEFAULT_CATEGORIES } from "./categories";
 import { POPULAR_SERVICES } from "./popularSubscriptions";
@@ -64,7 +64,7 @@ export default function AddSubscriptionModal({ isOpen, onClose }: Props) {
                             options={POPULAR_SERVICES}
                             value={service}
                             onChange={(opt) => {
-                                const name = 'name' in opt ? opt.name : (opt as any).name;
+                                const name = 'name' in opt ? opt.name : (opt as { name: string }).name;
                                 setService(name);
                                 // Prefill when we have metadata
                                 if ('id' in opt && opt.id !== 'custom') {
@@ -123,7 +123,7 @@ export default function AddSubscriptionModal({ isOpen, onClose }: Props) {
                             options={DEFAULT_CATEGORIES}
                             value={category}
                             onChange={(opt) => {
-                                const name = 'name' in opt ? opt.name : (opt as any).name;
+                                const name = 'name' in opt ? opt.name : (opt as { name: string }).name;
                                 setCategory(name);
                             }}
                             className="mt-1"

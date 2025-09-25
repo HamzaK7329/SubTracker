@@ -45,7 +45,7 @@ export default function CategoryCombobox({
 
   const select = (opt: CategoryOption | { id: 'custom'; name: string }) => {
     onChange(opt);
-    setQuery('name' in opt ? opt.name : (opt as any).name);
+    setQuery(opt.name);
     setOpen(false);
   };
 
@@ -64,7 +64,7 @@ export default function CategoryCombobox({
     } else if (e.key === 'Enter') {
       e.preventDefault();
       if (filtered[highlight]) select(filtered[highlight]);
-      else if (query.trim()) select({ id: 'custom', name: query.trim() } as any);
+      else if (query.trim()) select({ id: 'custom', name: query.trim() });
     } else if (e.key === 'Escape') {
       setOpen(false);
     }
@@ -116,7 +116,7 @@ export default function CategoryCombobox({
           {query.trim() && (
             <button
               type="button"
-              onClick={() => select({ id: 'custom', name: query.trim() } as any)}
+              onClick={() => select({ id: 'custom', name: query.trim() })}
               className="w-full px-3 py-2 text-sm text-left text-gray-200 hover:bg-[#1a1f2b]"
             >
               Use “{query.trim()}”
